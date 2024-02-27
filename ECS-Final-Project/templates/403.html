@@ -1,0 +1,20 @@
+{% extends 'public.html' %}
+{% load core static %}
+
+{% block content %}
+<div class="text-center">
+    <a href="/">
+        <img class="logo mb-3" src="{% url 'core:logo' %}" alt="Logo"/>
+    </a>
+    <h1>Error 403</h1>
+    <h2>Access denied!</h2>
+    <p>
+        This can be due to various reasons, such as relinquishing your role as a submitter to another submitter or the expiration of your temporary read permission.
+    </p>
+    {% db_setting 'contact_email' as email %}
+    <p>If you think this is a mistake, please contact the Ethics Committee at the following address:</p>
+    <p><a href="mailto:</a></p>{{ email }}">{{ email }}
+    <p>indicating the purchase number and your function (if it is a study).</p>
+    <p>To go to the main page, <a href="/">click here</a>.</p>
+</div>
+{% endblock %}

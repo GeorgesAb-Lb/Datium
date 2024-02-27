@@ -1,0 +1,157 @@
+{% load core corepdf %}
+<p class="border_bottom">
+    2.2 Field: <span class="value">{{ submission_form.specialism|default_if_none:""|linebreaksbr }}</span>
+</p>
+
+<table class="full_width nopadding border_bottom">
+    <thead>
+        <tr>
+            <td colspan="2" style="width: 50%;"><strong>2.3 Drug Trial</strong> (If applicable)</td>
+            <td colspan="2" style="width: 50%;"><strong>2.4 Medical Device Study</strong> (If applicable)</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width: 25%;">2.3.1 Test substance(s):</td>
+            <td style="width: 25%;" class="value">
+                {{ submission_form.pharma_checked_substance|default_if_none:""|linebreaksbr }}
+            </td>
+            <td style="width: 25%;">2.4.1 Investigational product(s):</td>
+            <td style="width: 25%;" class="value">
+                {{ submission_form.medtech_checked_product|default_if_none:""|linebreaksbr }}
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 25%;">2.3.2 Reference substance:</td>
+            <td style="width: 25%;" class="value">
+                {{ submission_form.pharma_reference_substance|default_if_none:""|linebreaksbr }}
+            </td>
+            <td style="width: 25%;">2.4.2 Reference product:</td>
+            <td style="width: 25%;" class="value">
+                {{ submission_form.medtech_reference_substance|default_if_none:""|linebreaksbr }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p class="border_bottom">
+    2.5 Clinical phase: <span class="value">{{ submission_form.clinical_phase }}</span>
+</p>
+
+<p>
+    2.6 Are other centers participating in the study: 
+    {% with multicentric=submission_form.is_multicentric %}
+        {{ multicentric|checkbox }} yes
+        {{ multicentric|not|checkbox }} no.
+        if <strong>yes:</strong>
+    {% endwith %}
+</p>
+
+<p>
+    <span class="indented">
+        {% with sf=submission_form %}
+            {% with inv=sf.investigators.non_system_ec pcns=sf.participatingcenternonsubject_set %}
+                {{ inv.exists|default:pcns.exists|checkbox }} 2.6.1 Domestically
+            {% endwith %}
+        {% endwith %}
+        {{ submission_form.foreignparticipatingcenter_set.exists|checkbox }} 2.6.2 abroad
+    </span>
+</p>
+
+<p class="border_bottom">
+    2.7 List of centres in Germany that are the subject of the submission: <br/>
+    {% for investigator in submission_form.investigators.all %}
+        <div class="value">{{ investigator.organisation }}</div>
+    {% endfor %}
+
+    List of centres in Germany that are <em>not</em> the subject of the submission: <br/>
+    {% for pc in submission_form.participatingcenternonsubject_set.all %}
+        <div class="value">
+            {{ pc.name }}, {{ pc.investigator_name }},
+            {{ pc.ethics_commission.name }}
+        </div>
+    {% endfor %}
+
+    List of International Centers: <br/>
+    {% for pc in submission_form.foreignparticipatingcenter_set.all %}
+        <div class="value">{{ pc.name }}, {{ pc.investigator_name }}</div>
+    {% endfor %}
+</p>
+
+<p class="border_bottom">
+    2.8 Have votes already been received from other ethics committees? <br/>
+    <span class="indented">{{ submission_form.already_voted|checkbox }} ja {{ submission_form.already_voted|not|checkbox }} nein. Wenn <strong>ja</strong>, <strong>Voten beilegen!</strong></span>
+</p>
+
+<p class="border_bottom">
+    2.9 Total planned number of examinees (<span class="underline">This applies to all participating centres</span>): 
+    <span class="value">{{ submission_form.subject_count }}</span>
+</p>
+
+<div class="border_bottom">
+    2.10 Characterization of the examinees:
+
+    <div class="indented">
+        <p>
+            <span>
+                2.10.1 Minimum age:
+                <span class="value"> {{ submission_form.subject_minage|default_if_none:'-' }} </span>
+            </span>
+            <span class="indented">
+                2.10.2 Age limit:
+                <span class="value"> {{ submission_form.subject_maxage|default_if_none:'-' }} </span>
+            </span>
+        </p>
+
+        <p>
+            2.10.3 Are those who are not personally capable of giving consent also included?
+            {{ submission_form.subject_noncompetents|checkbox }} yes
+            {{ submission_form.subject_noncompetents|not|checkbox }} no
+        </p>
+
+        <p>
+            2.10.4 The following can be included:
+            {% if submission_form.subject_childbearing %}
+                {{ True|checkbox }}
+            {% else %}
+                {{ submission_form.subject_females|checkbox }}
+            {% endif %}
+            <span class="underline">Female</span> (and/or)
+            {{ submission_form.subject_males|checkbox }} <span class="underline">male</span> participants.
+        </p>
+
+        <p>
+            2.10.5 Are women of childbearing potential included? (For studies according to AMG/MPG, a monthly pregnancy test is required if women of childbearing potential are included)
+            <div class="indented">
+                {% if submission_form.subject_females %}
+                    {{ submission_form.subject_childbearing|checkbox }} yes
+                    {{ False|checkbox }} Only childbearing children
+                    {{ submission_form.subject_childbearing|not|checkbox }} no
+                {% elif not submission_form.subject_females and submission_form.subject_childbearing %}
+                    {{ False|checkbox }} yes
+                    {{ True|checkbox }} Only childbearing children
+                    {{ False|checkbox }} no
+                {% else %}
+                    {{ False|checkbox }} yes
+                    {{ False|checkbox }} Only childbearing children
+                    {{ False|checkbox }} no
+                {% endif %}
+            </div>
+        </p>
+    </div>
+</div>
+
+<p class="border_bottom">
+    2.11 Duration of each candidate's participation in the study:
+    <span class="value"> {{ submission_form.subject_duration }} </span>
+</p>
+
+<p class="border_bottom">
+    2.11.1 Active Phase: <span class="value"> {{ submission_form.subject_duration_active }} </span>
+    2.11.2 Follow-up checks: <span class="value"> {{ submission_form.subject_duration_controls }} </span>
+</p>
+
+<p>
+    2.12. Expected total duration of the study:
+    <span class="value"> {{ submission_form.subject_planned_total_duration }} </span>
+</p>

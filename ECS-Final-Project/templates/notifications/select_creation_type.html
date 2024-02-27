@@ -1,0 +1,29 @@
+{% extends 'core.html' %}
+{% load i18n %}
+
+{% block htmltitle %}{% trans "New Notification" %} | {{ block.super }}{% endblock %}
+
+{% block headertitle %}
+    New announcement on the ongoing stud(y)(ies)
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="m-3 row">
+        {% for notification_type in notification_types %}
+            <div class="col-lg-6">
+                <a class="btn btn-block btn-primary mb-3" href="{% url 'notifications:create_notification' notification_type_pk=notification_type.pk %}">
+                    {{ notification_type.name }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="text-center">
+        <span class="fa fa-info text-info"></span>
+        To make a protocol change, go to the study in question and click on the Amendment button.
+    </div>
+</div>
+{% endblock %}
+
+{% block menuSelection %}notifications{% endblock %}

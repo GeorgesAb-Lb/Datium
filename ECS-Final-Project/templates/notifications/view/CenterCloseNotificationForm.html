@@ -1,0 +1,30 @@
+{% extends 'notifications/view/base.html' %}
+{% load i18n %}
+
+{% block table_rows %}
+    {{ block.super }}
+    <tr>
+        <th class="text-nowrap">Centre</th>
+        <td>
+            {% with investigator=notification.centerclosenotification.investigator %}
+                <dl>
+                    <dt>Trial Center</dt>
+                    <dd>{{ investigator.organisation }}</dd>
+
+                    <dt>Ethics Committee</dt>
+                    <dd>{{ investigator.ethics_commission.name }}</dd>
+
+                    <dt>Investigator</dt>
+                    <dd>{{ investigator.contact }}</dd>
+
+                </dl>
+            {% endwith %}
+        </td>
+    </tr>
+    <tr>
+        <th class="text-nowrap">Date of closure</th>
+        <td>
+            {{ notification.centerclosenotification.close_date|date:'d.m.Y' }}
+        </td>
+    </tr>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'notifications/view/ReportNotificationForm.html' %}
+{% load i18n %}
+{% block table_rows %}
+    {% with notification.progressreportnotification as notification %}
+        {{ block.super }}
+        <tr>
+            <th class="text-nowrap">Motion to extend the vote</th>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <th class="text-nowrap">
+                The study is expected to run until
+            </th>
+            <td>{{ notification.runs_till|date:'d.m.Y' }}</td>
+        </tr>
+    {% endwith %}
+{% endblock %}

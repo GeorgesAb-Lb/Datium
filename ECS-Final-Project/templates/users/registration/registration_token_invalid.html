@@ -1,0 +1,14 @@
+{% extends 'public.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    {{ block.super }}
+
+    <div class="alert alert-danger">
+        <h3 class="alert-heading">Invalid registration link</h3>
+        <p>The validity period of your registration link has expired. Note that the link must be used within 24 hours.</p>
+        <p>To get a new registration link, click <a href="{% url 'users:register' %}" class="alert-link">here</a>.</p>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+{% extends 'notifications/pdf/base.html' %}
+{% load core corepdf %}
+
+{% block typeoptions %}<h1>1. Security Report ({{ notification.safetynotification.get_safety_type_display }}) from the {{ notification.timestamp|date:'d.m.Y'}}</h1>{% endblock %}

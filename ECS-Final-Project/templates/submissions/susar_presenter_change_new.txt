@@ -1,0 +1,6 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+The role of "Safety Message Creator" for the study {{ submission|ec_number }} "{{ submission.project_title_display }}" has been transferred to you.
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'notifications/pdf/ReportNotificationForm.html' %}
+{% load i18n %}
+
+{% block formname %}Form for Interim Reports / Extension of the Vote{% endblock %}
+{% block typeoptions %}<h1>1. Extension of the study / interim report</h1>{% endblock %}
+
+{% block study_status %}
+    The study is expected to run until {{ notification.progressreportnotification.runs_till|date:'d.m.Y' }}
+{% endblock %}
+
+{% block comments %}
+    {{ block.super }}<br />
+    I request that the validity of the vote be extended.
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'msg_core.txt' %}
+{% load userutils %}
+
+{% block content %}
+A new authorized signatory has been added: {{ user|formal_name }}
+{% endblock %}

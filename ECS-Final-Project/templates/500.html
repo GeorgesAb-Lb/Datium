@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            div#main {
+                font-family:sans-serif;
+                margin:3rem auto 0;
+                padding:1rem;
+                width:33rem;
+                border:1px solid black;
+                border-radius:0.25rem;
+                text-align:center;
+                background-color:#d9edf7;
+                border-color:#bcdff1;
+                color:#31708f;
+            }
+            h3 {
+                margin-top:0;
+            }
+            div {
+                margin-top:1rem;
+            }
+            a:link, a:visited {
+                color:#0275d8;
+                text-decoration:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id ="main">
+            <h3>An error has occurred!</h3>
+            <div>
+                The error has been logged. 
+                {% if request.sentry.id %}
+                    To refer to this error,<br> 
+                    please make a note of this number: 
+                    <p>
+                        <strong>{{ request.sentry.id }}</strong>
+                    </p>
+                {% endif %}
+            </div>
+            <div>
+                To go to the main page, <a href="/"> click here</a>.
+            </div>
+        </div>
+    </body>
+</html>
+

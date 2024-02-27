@@ -1,0 +1,7 @@
+{% extends 'public.html' %}
+{% load i18n %}
+
+{% block content %}
+    {{ block.super }}
+    <p class="alert alert-success">An email has been sent to you at {<em>{ email }}</em>.</p>
+{% endblock %}

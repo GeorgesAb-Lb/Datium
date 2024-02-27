@@ -1,0 +1,16 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+{% comment %} Zur Studie {{ submission|ec_number }} "{{ submission.project_title_display }}" ist ein Gutachten eingelangt.
+
+Dieses steht Ihnen im ECS unter dem Reiter "Beurteilungen" zur Verfügung.
+
+Klicken Sie auf den folgenden Link um das Gutachten als PDF-Datei herunterzuladen: {% endcomment %}
+A report has been received on the study {{ submission|ec_number }} "{{ submission.project_title_display }}".
+
+This is available in the ECS under the "Assessments" tab.
+
+Click on the following link to download the report as a PDF file:
+{{ ABSOLUTE_URL_PREFIX }}{% url 'checklists:checklist_pdf' checklist_pk=checklist.pk %}
+{% endblock %}

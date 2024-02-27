@@ -1,0 +1,7 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+Your submission {{ submission|ec_number }} "{{ submission.project_title_display }}" cannot be accepted in its present form.
+Check your message inbox for more details. You can change the study in the system by clicking on "Edit" and then resubmit it.
+{% endblock %}

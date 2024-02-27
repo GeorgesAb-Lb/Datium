@@ -1,0 +1,13 @@
+{% extends 'public.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    {{ block.super }}
+    <div class="alert alert-danger">
+        <h3 class="alert-heading">reset password failed</h3>
+        The validity period of your password reset link has expired. Note that the link must be used within one hour.
+        <p><a href="{% url 'users:request_password_reset' %}" class="alert-link">Request this service again</a> if you want to reset your password.</p>
+    </div>
+
+{% endblock %}

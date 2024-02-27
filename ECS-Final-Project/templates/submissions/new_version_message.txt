@@ -1,0 +1,6 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+A new version of the study {{ submission|ec_number }} "{{ submission.project_title_display }}" has been submitted.
+{% endblock %}

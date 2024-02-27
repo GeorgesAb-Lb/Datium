@@ -1,0 +1,15 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+The {% ec_name %} asks you for an opinion on the study {{ submission|ec_number }} ("{{ submission.project_title_display }}").
+
+The project will be discussed in the session of {{ meeting.start|date:'d.m.Y' }}.
+
+For your efforts, you will receive a recognition fee of {{ price.price|euro }}.
+
+Please let us know as soon as possible if you will be carrying out the review. In the event of your rejection, we will ask you for suggestions from other suitable experts.
+
+To prepare your report, click on the following link:
+{{ ABSOLUTE_URL_PREFIX }}{{ url }}
+{% endblock %}

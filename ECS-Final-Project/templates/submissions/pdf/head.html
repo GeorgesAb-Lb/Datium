@@ -1,0 +1,53 @@
+{% load core corepdf %}
+
+<div class="title">
+  <div class="ec_number_right">
+      EK Nr: {{ submission_form.submission|ec_number }} Version {{ submission_form.version }}
+  </div>
+  <h1>Application</h1>
+  <p>Version 6.4 vom 12.06.2012</p>
+</div>
+
+<div class="infotext">
+    This form is intended to be used for submissions to Austrian ethics committees. <br/>
+    It consists of a general <span class="underline">Part A</span> - Details of the study and the sponsor - <br/>
+    and from a special <span class="underline">Part B</span> - information on the individual test centre(s). <br/>
+    In the case of submissions for several centres (examiners), only Part B needs to be adapted to the respective centre.
+</div>
+
+<div class="two_columns">
+  
+    <div class="column_left">
+      <span class="small">Address of the Ethics Committee (optional)</span>
+    </div>
+    
+    <div class="column_right">
+       <span class="small">Space for receipt stamp, purchase number, etc. Please leave free!</span>
+        {% tcwrap plain %}
+           
+        {% endtcwrap %}
+        
+    </div>
+  
+</div>
+ 
+<center><h2>APPLICATION FOR EVALUATION OF A CLINICAL RESEARCH PROJECT</h2></center>
+
+<div class="infotext big">
+    for the following examiners at the following Austrian ethics committees:
+</div>
+
+<table class="full_width withborders">
+    <tr>
+        <th style="width: 33.33%;">Responsible Ethics Committee</th>
+        <th style="width: 33.33%;">Centre</th>
+        <th style="width: 33.33%;">Examiner (local study management)</th>
+    </tr>
+    {% for inv in submission_form.investigators.all %}
+        <tr>
+            <td>{{ inv.ethics_commission.name }}</td>
+            <td>{{ inv.organisation }}</td>
+            <td>{{ inv.contact }}</td>
+        </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,8 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+With regard to the expert opinion you have prepared on the study {{ submission|ec_number }} "{{ submission.project_title_display }}" questions have arisen on the part of the Ethics Committee.
+
+Please check your inbox for more details.
+{% endblock %}

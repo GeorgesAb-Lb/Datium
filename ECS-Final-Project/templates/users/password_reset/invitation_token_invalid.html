@@ -1,0 +1,13 @@
+{% extends 'public.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    {{ block.super }}
+    <div class="alert alert-danger">
+        <h3 class="alert-heading">Invitation login failed</h3>
+        Your invitation has expired or has already been used.
+        <p>You can use the service <a href="{% url 'users:request_password_reset' %}" class="alert-link">Reset Password</a> to receive a new valid link by email to activate their account.</p>
+    </div>
+
+{% endblock %}

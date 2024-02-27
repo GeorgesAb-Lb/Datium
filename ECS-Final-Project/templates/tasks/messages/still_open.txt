@@ -1,0 +1,5 @@
+{% extends 'msg_core.txt' %}
+
+{% block content %}
+{% if task.assigned_to %}{{ task.assigned_to }} has the task of "{{ task.task_type }}" Not yet completed.{% else %}The Task "{{ task.task_type }}" has not yet been completed.{% endif %}
+{% endblock %}

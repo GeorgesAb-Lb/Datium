@@ -1,0 +1,15 @@
+{% extends 'notifications/view/ReportNotificationForm.html' %}
+{% load i18n %}
+{% block table_rows %}
+    {% with notification.completionreportnotification as notification %}
+        {{ block.super }}
+        <tr>
+            <th class="text-nowrap">The study was discontinued</th>
+            <td>{{ notification.study_aborted|yesno:"Ja,Nein" }}</td>
+        </tr>
+        <tr>
+            <th class="text-nowrap">Date of termination</th>
+            <td>{{ notification.completion_date|date:'d.m.Y' }}</td>
+        </tr>
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'msg_core.txt' %}
+
+{% block content %}
+Your XLS export is now available for download:
+{{ ABSOLUTE_URL_PREFIX }}{% url 'core:xls_export_download' shasum=shasum %}
+
+This link is valid for 30 days.
+{% endblock %}

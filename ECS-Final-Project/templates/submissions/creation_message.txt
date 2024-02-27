@@ -1,0 +1,7 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+The study "{{ submission.project_title_display }}" ({{ submission|ec_number }}) was submitted to the {% ec_name %}.
+You are receiving this notification because you appear in the study as a participant.
+{% endblock %}

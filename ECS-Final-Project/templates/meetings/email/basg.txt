@@ -1,0 +1,8 @@
+{% load core %}
+Attached you will find the electronically signed vote.
+
+{% db_setting 'signature_block' %}
+
+{% ec_name %}
+{% db_setting 'address' %}
+{% db_setting 'contact_url' %}

@@ -1,0 +1,197 @@
+{% load core corepdf %}
+
+<div class="border_top border_bottom">
+    7.1 <strong>
+        If the original project title is not in German: German translation of the title:
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_project_title|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.2 <strong>
+        Project Summary (Justification, Relevance, Design, Measures, and Procedure):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_summary|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.3 <strong>
+        Results of preclinical tests or justification for waiving preclinical tests:
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_preclinical_results|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.4 <strong>
+        Primary hypothesis of the study (if relevant, also secondary hypotheses):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_primary_hypothesis|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.5 <strong>
+        Relevant inclusion and exclusion criteria:
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_inclusion_exclusion_crit|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.6 <strong>
+        Ethical considerations<br/>
+        (Identify and describe all potential issues. Describe the potential knowledge gain 
+        the study aims to achieve, its significance, and potential risks to the well-being of 
+        the study participants. <strong>Provide your own assessment of the benefit/risk ratio</strong>):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_ethical_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.7 <strong>
+        Justification for the inclusion of individuals from protected groups<br/>
+        (e.g., minors, temporarily or permanently incapable individuals; if applicable): 
+    </strong>
+    <p class="indented">
+        {{submission_form.german_protected_subjects_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.8 <strong>
+        Description of the recruitment procedure<br/>
+        (all materials intended for use, e.g., advertisements <strong>including layout</strong>, must be included):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_recruitment_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.9 <strong>
+        Procedure at the study site(s) for informing and obtaining informed consent from study participants, 
+        parents, or legal representatives, if applicable (who will inform and when, need for legal representation, witnesses, etc.):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_consent_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.10 <strong>
+        Risk assessment, foreseeable risks of treatment and other procedures to be used 
+        (including pain, inconvenience, violation of personal integrity, and measures to avoid and/or care for unforeseen/unwanted events):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_risks_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.11 <strong>
+        Anticipated benefits for the included study participants: 
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_benefits_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.12 <strong>
+        Relationship between study participant and investigator (e.g., patient -
+        physician, student - teacher, employee - employer, etc.):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_relationship_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.13 <strong>
+        Procedures at the study site(s) to determine whether an individual to be included 
+        is simultaneously participating in another study or whether a required time period 
+        has elapsed since participation in another study<br/> (particularly important if 
+        healthy subjects are included in pharmacological studies):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_concurrent_study_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.14 <strong>
+        Methods to identify, record, and report adverse effects<br/>
+        (Describe when, by whom, and how, e.g., free questioning and/or using lists):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_sideeffects_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.15 <strong>
+        Optional: Statistical considerations and reasons for the number of individuals to be included 
+        in the study (additional information on point 8, if necessary):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_statistical_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.16 <strong>
+        Optional: Methods used to protect the confidentiality of collected data, source documents, and samples 
+        (additional information on point 8, if necessary):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_dataprotection_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.17 <strong>
+        Plan for treatment or care after individuals have completed their participation in the study 
+        (who will be responsible and where):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_aftercare_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.18 <strong>
+        Amount and procedure of compensation or remuneration to study participants<br/>
+        (Description of the amount paid during study participation and for what, e.g.,
+        travel expenses, loss of income, pain and inconvenience, etc.):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_payment_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.19 <strong>
+        Rules for suspending or terminating the study at the study site(s) in this Member State or the entire study: 
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_abort_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.20 <strong>
+        Agreement on the access of the investigator(s) to data, 
+        publication guidelines, etc. (if not presented in the protocol):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_dataaccess_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.21 <strong>
+        Study financing (if not presented in the protocol) and information 
+        on financial or other interests of the investigator(s): 
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_financing_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>
+<div class="border_bottom">
+    7.22 <strong>
+        Additional information (if necessary):
+    </strong>
+    <p class="indented">
+        {{ submission_form.german_additional_info|default_if_none:""|linebreaksbr }}
+    </p>
+</div>

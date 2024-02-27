@@ -1,0 +1,10 @@
+{% extends 'msg_core.txt' %}
+{% load core %}
+
+{% block content %}
+For the next Expedited Review, projects are available for you or assigned to your specialist group.
+The deadline for peer review is {{ start|date:'d.m.Y' }} at {{ start|date:'H:i' }}. If necessary, please consult with colleagues from your department about who will carry out the review.
+We ask you to carry out the Expedited Review only in writing in the ECS: On the overview page, click on the respective purchase number under the open tasks "Expedited Recommendation", fill out the Expedited assessment and then click on "Close" and "Submit".
+If you have any questions, please feel free to contact the office at any time.
+IMPORTANT: The review of all projects for the Expedited Review must be completed no later than the day after the deadline. Projects that have not yet been reviewed at this time will automatically be placed on the agenda of the meeting.
+{% endblock %}
