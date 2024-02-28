@@ -1,6 +1,0 @@
-{% extends 'msg_core.txt' %}
-{% load core %}
-
-{% block content %}
-The study {{ submission|ec_number }} "{{ submission.project_title_display }}" has been amended.
-{% endblock %}

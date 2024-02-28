@@ -1,5 +1,0 @@
-{% extends 'msg_core.txt' %}
-
-{% block content %}
-{{ user }} is currently prevented. You have been selected as a news representative.
-{% endblock %}

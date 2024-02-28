@@ -1,9 +1,0 @@
-{% extends 'msg_core.txt' %}
-{% load core %}
-
-{% block content %}
-The study {{ submission|ec_number }} "{{ submission.project_title_display }}" has not yet been submitted.
-
-The Ethics Committee would like to draw attention to the fact that there is no final positive vote for this study and that the project may therefore not be started.
-Please make sure that you have submitted all necessary documents to the Ethics Committee.
-{% endblock %}

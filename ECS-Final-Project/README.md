@@ -1,1 +1,0 @@
-# The-ethic-commission-system-django

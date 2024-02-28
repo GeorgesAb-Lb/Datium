@@ -1,5 +1,0 @@
-{% extends 'msg_core.txt' %}
-
-{% block content %}
-{{ task.assigned_to }} has the task of "{{ task.task_type }}" completed.
-{% endblock %}

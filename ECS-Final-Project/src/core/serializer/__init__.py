@@ -1,1 +1,0 @@
-from src.core.serializer.base import Serializer

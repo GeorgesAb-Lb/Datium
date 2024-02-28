@@ -1,6 +1,0 @@
-{% extends 'msg_core.txt' %}
-{% load core %}
-
-{% block content %}
-The role of "submitter" for the study {{ submission|ec_number }} "{{ submission.project_title_display }}" has been transferred to you.
-{% endblock %}

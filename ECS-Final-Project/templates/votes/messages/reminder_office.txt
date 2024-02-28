@@ -1,6 +1,0 @@
-{% extends 'msg_core.txt' %}
-{% load core %}
-
-{% block content %}
-The vote in favor of the study {{ submission|ec_number }} "{{ submission.project_title_display }}" from the {{ vote.top.meeting.start|default:vote.published_at|date:'d.m.Y' }} expires in a week.
-{% endblock %}

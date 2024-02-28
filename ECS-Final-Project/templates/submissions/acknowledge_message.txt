@@ -1,8 +1,0 @@
-{% extends 'msg_core.txt' %}
-{% load core %}
-
-{% block content %}
-The Ethics Committee confirms receipt of your application {{ submission|ec_number }} "{{ submission.project_title_display }}".
-Information about the status of the study's processing can be found in your ECS account under the tab General/Status.
-See: {{ ABSOLUTE_URL_PREFIX }}{% url 'core:view_submission' submission_pk=submission.pk %}
-{% endblock %}
